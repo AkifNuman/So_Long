@@ -10,13 +10,15 @@ The goal of the project is to build a simple tile-based game while learning the 
 
 `so_long` is a minimal 2D game where the player navigates through a map, collects items, and reaches the exit.
 
-The project focuses on implementing the core components of a simple game engine:
+The project focuses on implementing the core components of a simple game structure:
 
 * Map parsing and validation
 * Window rendering
 * Keyboard input handling
 * Player movement logic
 * Basic game state management
+
+In this implementation, the game uses **different sprites for the map elements** (player, walls, collectibles, exit, and floor) so that each element is visually distinct.
 
 ---
 
@@ -35,7 +37,7 @@ Every movement made by the player is counted and printed to the terminal.
 
 ## Controls
 
-```id="1d93s9"
+```
 W  Move up
 A  Move left
 S  Move down
@@ -51,7 +53,7 @@ The game loads maps from `.ber` files.
 
 Example map:
 
-```id="u8ng1s"
+```
 1111111
 1P000C1
 1000101
@@ -61,13 +63,15 @@ Example map:
 
 ### Map Elements
 
-```id="jkt8p9"
+```
 1  Wall
-0  Empty space
+0  Empty space / floor
 P  Player starting position
 C  Collectible
 E  Exit
 ```
+
+Each element is rendered using **different textures/sprites**, allowing the player to clearly distinguish walls, collectibles, and the exit.
 
 ---
 
@@ -89,16 +93,17 @@ Before the game starts, the map is validated to ensure:
 The game uses **MiniLibX** to:
 
 * Create a window
-* Render tiles and sprites
-* Update the scene based on player movement
+* Render the map grid
+* Display different textures for each game element
+* Update the scene after player movement
 
-Each tile on the map is drawn based on its type (wall, floor, collectible, etc.).
+Each tile type (wall, floor, collectible, player, exit) is drawn with its **own sprite**, making the map visually readable during gameplay.
 
 ---
 
 ## Example Run
 
-```id="v3b6r8"
+```
 ./so_long maps/map.ber
 ```
 
@@ -110,13 +115,13 @@ This launches the game and loads the specified map.
 
 Compile the project using:
 
-```id="7kgn1k"
+```
 make
 ```
 
 This will generate the executable:
 
-```id="w2qhsx"
+```
 so_long
 ```
 
@@ -124,13 +129,13 @@ so_long
 
 ## Project Structure
 
-```id="8d5wju"
+```
 so_long/
 │
 ├── src/        source files
 ├── includes/   header files
-├── map/       example maps
-├── textures/   game textures
+├── maps/       example maps
+├── textures/   sprite images used in the game
 └── Makefile
 ```
 
@@ -140,13 +145,13 @@ so_long/
 
 * Basic game loop architecture
 * Event-driven programming
-* 2D rendering with MiniLibX
+* 2D rendering using MiniLibX
 * Map parsing and validation
+* Texture/sprite based tile rendering
 * Memory management in C
-* Simple gameplay system implementation
 
 ---
 
 ## Notes
 
-This project was implemented as part of the **42 School curriculum**, which focuses on learning low-level programming and building practical software projects from scratch.
+This project was implemented as part of the **42 School curriculum**, which focuses on low-level programming and building software projects from scratch.
