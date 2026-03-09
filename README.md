@@ -1,5 +1,7 @@
 # so_long
 
+![Image](https://github.com/user-attachments/assets/304e482c-df1d-48dd-ada8-5ac9eee09078)
+
 A small **2D game project written in C** using the **MiniLibX graphics library**, developed as part of the **42 curriculum**.
 
 The goal of the project is to build a simple tile-based game while learning the basics of **graphics programming, event handling, and game loops** in C.
